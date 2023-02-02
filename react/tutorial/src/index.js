@@ -4,11 +4,13 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import AppCounter from './AppCounter';
+import AppTicTecToe from './AppTicTecToe';
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <AppCounter />
+    <AppTicTecToe/>
   </React.StrictMode>
 );
 
