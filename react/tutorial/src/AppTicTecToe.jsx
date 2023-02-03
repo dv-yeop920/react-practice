@@ -44,10 +44,11 @@ const AppTicTecToe = () => {
     const winner = TicTecToeWinner(value);
     let status;
     if(winner) {
-        status = `승자는 ${winner} 입니다 ! 새로고침해서 새로운게임 진행해 주세요!`
+        status = `승자는 ${winner} 입니다 ! 새로고침해서 새로운게임 진행해 주세요!`;
+        
 
     }else {
-        status = `다음 플레이어: ${xIsNext ? 'x':'O'}`
+        status = `다음 플레이어: ${xIsNext ? 'x':'O'}`;
     }
     
     return (
