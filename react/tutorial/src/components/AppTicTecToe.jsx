@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import TicTecToe from './components/TicTecToe';
-import './App.css';
+import TicTecToe from './TicTecToe';
+import '../App.css';
 
 
 const AppTicTecToe = () => {
