@@ -4,6 +4,7 @@ import Blog from './components/Blog';
 
 
 function App() {
+
   return (
     <>
     <div className='nav-bar'>
