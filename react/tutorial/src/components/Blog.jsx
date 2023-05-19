@@ -39,7 +39,7 @@ const Blog = () => {
                 )
             })
         }
-        {modal === true ? <Modal title = {title}/> : null}
+        {modal === true ? <Modal  edit = {setTitle} title = {title}/> : null}
         </>
     );
 };
@@ -47,10 +47,14 @@ const Blog = () => {
 const Modal = (props) => {
     return(
         <div className="modal">
-            <h4>{props.title}</h4>
+            <h4>{props.title[0]}</h4>
             <p>날짜</p>
             <p>상세내용</p>
-            <button>글 수정</button>
+            <button onClick={() => {
+                let newTitle = [...props.title];
+                newTitle[0] = 'asddsasdsad';
+                props.edit(newTitle);
+            }}>글 수정</button>
         </div>
     );
 };
