@@ -1,46 +1,56 @@
 import React, { useState } from 'react';
 
 const Blog = () => {
-    const [title , setTitle] = useState(['암거나' , 'ㅋㅋㅋ' , 'ㅎㅎㅎㅎ']);
-    const [count , setCount] = useState(0);
-    const [heart , setHeart] = useState('🤍');
+    const [title , setTitle] = useState(['첫번째' , '두번째' , '세번째' , '네번째']);
+    const [count , setCount] = useState([0,0,0,0]);
+    const [heart , setHeart] = useState(['🤍','🤍','🤍','🤍'] );
     const [modal , setModal] = useState(false);
     
     return (
-        <div>
-            <div className='list'>
-                <h4 onClick={() => {
-                    modal === false ? setModal(true) : setModal(false);
-                }}>{title[0]}
-                </h4>
-                <div>
-                <button onClick={() => {
-                        setCount(count + 1);
-                        setHeart('💖');
-                        let titleCopy = [...title];
-                        titleCopy[0] = 'Wow';
-                        setTitle(titleCopy);
-                        console.log(title === titleCopy);
+        <>
+        {
+            title.map((item , i) => {
+                return(
+                    <div className='list' key={i}>
+                        <h4 onClick={() => {
+                            modal === false ? setModal(true) : setModal(false);
+                        }}>{item}
+                        </h4>
+                    <div>
+                        <button onClick={() => {
+                            let titleCopy = [...title];
+                            titleCopy[i] = 'Wow';
+                            setTitle(titleCopy);
+                            let countCopy = [...count];
+                            countCopy[i] += 1;
+                            setCount(countCopy);
+                            let heartCopy = [...heart];
+                            heartCopy[i] = '❤️';
+                            setHeart(heartCopy);
                         }}>
-                    {heart}
-                    </button>
-                    <span>
-                        {count}
-                    </span>
-                </div>
-                <p>2023.05.17</p>
-            </div>
-            {modal === true ? <Modal/> : null}
-        </div>
+                            {heart[i]}
+                        </button>
+                        <p>
+                        {count[i]}
+                        </p>
+                    </div>
+                    <p>2023.05.17</p>
+                    </div>
+                )
+            })
+        }
+        {modal === true ? <Modal title = {title}/> : null}
+        </>
     );
 };
 
-const Modal = () => {
+const Modal = (props) => {
     return(
         <div className="modal">
-            <h4>제목</h4>
+            <h4>{props.title}</h4>
             <p>날짜</p>
             <p>상세내용</p>
+            <button>글 수정</button>
         </div>
     );
 };
