@@ -12,7 +12,9 @@ const Blog = () => {
                 <h4 onClick={() => {
                     modal === false ? setModal(true) : setModal(false);
                 }}>{title[0]}
-                    <button onClick={() => {
+                </h4>
+                <div>
+                <button onClick={() => {
                         setCount(count + 1);
                         setHeart('💖');
                         let titleCopy = [...title];
@@ -25,7 +27,7 @@ const Blog = () => {
                     <span>
                         {count}
                     </span>
-                </h4>
+                </div>
                 <p>2023.05.17</p>
             </div>
             {modal === true ? <Modal/> : null}
