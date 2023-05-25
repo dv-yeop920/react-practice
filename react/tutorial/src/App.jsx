@@ -7,7 +7,7 @@ function App() {
 
   return (
     <>
-    <div className='nav-bar'>
+        <div className='nav-bar'>
                 <h3>React</h3>
             </div>
     <Blog/>

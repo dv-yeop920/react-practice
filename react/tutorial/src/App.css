@@ -70,7 +70,9 @@
 }
 
 .list {
+  border-top: 1px solid rgba(0, 0, 0, 0.5);
   border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+
 }
 
 .modal{
@@ -82,4 +84,22 @@
 
 h4 {
   cursor: pointer;
+}
+
+.input-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+input {
+  padding: 12px;
+  width: 500px;
+  background-color: #eee;
+}
+
+#input-button {
+  padding: 13px;
+  background-color: darkgreen;
+  color: #eee;
 }
