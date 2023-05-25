@@ -14,6 +14,7 @@ const Blog = () => {
             e.preventDefault();
         }}>
             <input type="text" 
+            value={userInputValue}
             placeholder='입력...' 
             onChange={(e) => {
                 setUserInputValue(e.target.value);
@@ -29,6 +30,8 @@ const Blog = () => {
                 setTitle([...addTitle]);
                 setHeart([...addHeart]);
                 setCount([...addCount]);
+                setUserInputValue('');
+                
                 console.log(title)
             }}>submit</button>
         </form>
