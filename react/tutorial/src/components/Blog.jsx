@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 
 const Blog = () => {
     const [title , setTitle] = useState(['첫번째' , '두번째' , '세번째' , '네번째']);
+    const [cloneTitle , setCloneTitle] = useState(0);
     const [count , setCount] = useState([0,0,0,0]);
     const [heart , setHeart] = useState(['🤍','🤍','🤍','🤍'] );
     const [modal , setModal] = useState(false);
@@ -14,7 +15,8 @@ const Blog = () => {
                     <div className='list' key={i}>
                         <h4 onClick={() => {
                             modal === false ? setModal(true) : setModal(false);
-                        }}>{item}
+                            setCloneTitle(i);
+                        }}>{title[i]}
                         </h4>
                     <div>
                         <button onClick={() => {
@@ -39,7 +41,10 @@ const Blog = () => {
                 )
             })
         }
-        {modal === true ? <Modal  edit = {setTitle} title = {title}/> : null}
+        {modal === true ? <Modal 
+        cloneTitle = {cloneTitle}
+        edit = {setTitle} 
+        title = {title}/> : null}
         </>
     );
 };
@@ -47,12 +52,12 @@ const Blog = () => {
 const Modal = (props) => {
     return(
         <div className="modal">
-            <h4>{props.title[0]}</h4>
+            <h4>{props.title[props.cloneTitle]}</h4>
             <p>날짜</p>
             <p>상세내용</p>
             <button onClick={() => {
                 let newTitle = [...props.title];
-                newTitle[0] = 'asddsasdsad';
+                newTitle[props.cloneTitle] = 'asddsasdsad';
                 props.edit(newTitle);
             }}>글 수정</button>
         </div>
