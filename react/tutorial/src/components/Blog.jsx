@@ -8,6 +8,21 @@ const Blog = () => {
     const [modal , setModal] = useState(false);
     const [userInputValue , setUserInputValue] = useState('');
     
+    const handleInput = () => {
+        if(userInputValue === '') {
+            return;
+        }
+            let addTitle = [...title];
+            let addHeart = [...heart];
+            let addCount = [...count];
+            addTitle.push(userInputValue);
+            addHeart.push('🤍');
+            addCount.push(0);
+            setTitle([...addTitle]);
+            setHeart([...addHeart]);
+            setCount([...addCount]);
+            setUserInputValue('');
+    }
     return (
         <>
         <form className='form-container' onSubmit={(e) => {
@@ -21,20 +36,10 @@ const Blog = () => {
                 console.log(userInputValue);
                 }}/>
             <button id='input-button' onClick ={(e) => {
-                let addTitle = [...title];
-                let addHeart = [...heart];
-                let addCount = [...count];
-                addTitle.push(userInputValue);
-                addHeart.push('🤍');
-                addCount.push(0);
-                setTitle([...addTitle]);
-                setHeart([...addHeart]);
-                setCount([...addCount]);
-                setUserInputValue('');
-                
-                console.log(title)
+                handleInput();
             }}>submit</button>
         </form>
+
         {
             title.map((item , i) => {
                 return(
@@ -63,13 +68,15 @@ const Blog = () => {
                                 {count[i]}
                             </span>
                         </h4>
-                        
-                    <p>2023.05.17</p>
+                    <span>2023.05.17</span>
+                    <button onClick={(e) => {
+                    }}>삭제</button>
                     
                     </div>
                 )
             })
         }
+
         {modal === true ? <Modal 
         cloneTitle = {cloneTitle}
         edit = {setTitle} 
