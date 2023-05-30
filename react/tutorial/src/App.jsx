@@ -1,16 +1,13 @@
 
 import './App.css';
-import Blog from './components/Blog';
+import Shopping from './components/Shopping';
 
 
 function App() {
 
   return (
     <>
-        <div className='nav-bar'>
-                <h3>React</h3>
-            </div>
-    <Blog/>
+    <Shopping/>
     </>
   );
 }
