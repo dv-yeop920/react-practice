@@ -15,9 +15,9 @@ const Blog = () => {
             let addTitle = [...title];
             let addHeart = [...heart];
             let addCount = [...count];
-            addTitle.push(userInputValue);
-            addHeart.push('🤍');
-            addCount.push(0);
+            addTitle.unshift(userInputValue);
+            addHeart.unshift('🤍');
+            addCount.unshift(0);
             setTitle([...addTitle]);
             setHeart([...addHeart]);
             setCount([...addCount]);
@@ -35,13 +35,36 @@ const Blog = () => {
                 setUserInputValue(e.target.value);
                 console.log(userInputValue);
                 }}/>
-            <button id='input-button' onClick ={(e) => {
-                handleInput();
-            }}>submit</button>
+            <button id='input-button' 
+            onClick ={handleInput}>
+                submit
+            </button>
         </form>
 
         {
             title.map((item , i) => {
+                const handleClickHeartButton = () => {
+                    let titleCopy = [...title];
+                        titleCopy[i] = 'Wow';
+                        setTitle(titleCopy);
+                        let countCopy = [...count];
+                        countCopy[i] += 1;
+                        setCount(countCopy);
+                        let heartCopy = [...heart];
+                        heartCopy[i] = '❤️';
+                        setHeart(heartCopy);
+                }
+                const handleClickRemoveButton = () => {
+                    let removeTitle = [...title];
+                    let removeHeart = [...heart];
+                    let removeCount = [...count];
+                    removeTitle.splice(i , 1);
+                    removeHeart.splice(i , 1);
+                    removeCount.splice(i , 1);
+                    setTitle([...removeTitle]);
+                    setHeart([...removeHeart]);
+                    setCount([...removeCount]);
+                }
                 return(
                     
                     <div className='list' key={i}>
@@ -50,17 +73,11 @@ const Blog = () => {
                             setCloneTitle(i);
                         }}>
                         {title[i]}
-                            <button onClick={(event) => {
-                                event.stopPropagation();
-                                let titleCopy = [...title];
-                                titleCopy[i] = 'Wow';
-                                setTitle(titleCopy);
-                                let countCopy = [...count];
-                                countCopy[i] += 1;
-                                setCount(countCopy);
-                                let heartCopy = [...heart];
-                                heartCopy[i] = '❤️';
-                                setHeart(heartCopy);
+                            <button 
+                            clasName ='heart-button'
+                            onClick={(e) => {
+                                e.stopPropagation();
+                                handleClickHeartButton();
                             }}>
                                 {heart[i]}
                             </button>
@@ -69,9 +86,7 @@ const Blog = () => {
                             </span>
                         </h4>
                     <span>2023.05.17</span>
-                    <button onClick={(e) => {
-                    }}>삭제</button>
-                    
+                    <button onClick={handleClickRemoveButton}>삭제</button>
                     </div>
                 )
             })
