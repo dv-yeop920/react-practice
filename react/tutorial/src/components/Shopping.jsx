@@ -1,6 +1,7 @@
 import React from 'react';
-import {Button , Navbar , Container , Nav} from 'react-bootstrap';
+import {Navbar , Container , Nav} from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import ShoesData from './ShoesData.jsx';
 
 
 const Shopping = () => {
@@ -18,21 +19,9 @@ const Shopping = () => {
         </Navbar>
         <div className='main-bg'></div>
         <div className='container'>
-            <div className='menu-column'>
-                <img src="https://codingapple1.github.io/shop/shoes1.jpg" width='90%'/>
-                <h4>상품명</h4>
-                <p>가격</p>
-            </div>
-            <div className='menu-column'>
-                <img src="https://codingapple1.github.io/shop/shoes2.jpg" width='90%'/>
-                <h4>상품명</h4>
-                <p>가격</p>
-            </div>
-            <div className='menu-column'>
-                <img src="https://codingapple1.github.io/shop/shoes3.jpg" width='90%'/>
-                <h4>상품명</h4>
-                <p>가격</p>
-            </div>
+            <ShoesData/>
+            <ShoesData/>
+            <ShoesData/>
         </div>
         </div>
     );

@@ -106,7 +106,7 @@ input {
 }*/
 .main-bg {
   height: 500px;
-  background-image: url('./img/shoes1.jpg');
+  background-image: url('https://codingapple1.github.io/shop/shoes1.jpg');
   background-size: cover;
   background-position: center;
   margin-top: 50px;
@@ -115,10 +115,15 @@ input {
 
 .container {
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
 }
 
 .menu-column {
+  margin-bottom: 70px;
   height: 300px;
+}
+img {
+  height: 300px;
+  width: 400px;
 }
