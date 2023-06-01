@@ -1,13 +1,35 @@
 
+import React from 'react';
 import './App.css';
+import {Navbar , Container , Nav} from 'react-bootstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import Shopping from './components/Shopping';
-
+import ShoppingDetail from './components/ShoppingDetail';
+import { Route, Routes, useNavigate } from 'react-router-dom';
 
 function App() {
-
+  const navigate = useNavigate();
   return (
     <>
-    <Shopping/>
+    <Navbar bg="light" variant="light">
+            <Container>
+                <Navbar.Brand onClick = {() => {navigate('/')}}>Shop</Navbar.Brand>
+                <Nav className="me-auto">
+                <Nav.Link onClick={() => {navigate('/')}}>Home</Nav.Link>
+                <Nav.Link onClick={() => {navigate('/detail')}}>Menu</Nav.Link>
+                <Nav.Link onClick={() => {navigate('/info')}}>Info</Nav.Link>
+            </Nav>
+            </Container>
+        </Navbar>
+    <Routes>
+      <Route path='/' element = {<Shopping/>} />
+      <Route path='/detail' element = {<ShoppingDetail/>}>
+          <Route path='own' element = {<div>이거슨</div>}/>
+          <Route path='two' element = {<div>매직</div>}/>
+      </Route>
+      <Route path='/info' element = {<div>정보 페이지</div>}/>
+      <Route path='*' element = {<div>404</div>}/>
+    </Routes>
     </>
   );
 }
