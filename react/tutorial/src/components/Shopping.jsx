@@ -6,7 +6,7 @@ import ShoesData from './ShoesData.jsx';
 
 const Shopping = () => {
     return (
-        <div>
+        <>
         <Navbar bg="light" variant="light">
             <Container>
                 <Navbar.Brand href="#home">Shop</Navbar.Brand>
@@ -17,13 +17,12 @@ const Shopping = () => {
             </Nav>
             </Container>
         </Navbar>
-        <div className='main-bg'></div>
-        <div className='container'>
-            <ShoesData/>
-            <ShoesData/>
+        <div className='main-bg'>
+        </div>
+        <div class="container"> 
             <ShoesData/>
         </div>
-        </div>
+        </>
     );
 };
 

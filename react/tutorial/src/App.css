@@ -106,24 +106,20 @@ input {
 }*/
 .main-bg {
   height: 500px;
-  background-image: url('https://codingapple1.github.io/shop/shoes1.jpg');
-  background-size: cover;
+  background-image: url('https://gdimg.gmarket.co.kr/2785442837/still/280?ver=1681190691');
+  background-size:auto;
   background-position: center;
-  margin-top: 50px;
   margin-bottom: 50px;
 }
 
-.container {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-}
+
 
 .menu-column {
   margin-bottom: 70px;
   height: 300px;
 }
 img {
-  height: 300px;
-  width: 400px;
+  height: 250px;
+  width: 300px;
+  margin-bottom: 30px;
 }

@@ -3,19 +3,21 @@ import { useState } from 'react';
 import shoesData from './data.js';
 
 const ShoesData = () => {
-    const [shoes , setShoes] = useState(shoesData);
+    const [shoes] = useState(shoesData);
     return (
-        <div>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '10px',textAlign:'center' }}>
             {
                 shoes.map((item , i) => {
                     return(
-                        <div className='menu-column'>
-                            <div className='img-box'>
+                        <>
+                        <div class="col">
+                            <div>
                             <img src={shoes[i].image} width='90%'/>
-                            </div>
                             <h4>{shoes[i].title}</h4>
                             <p>{shoes[i].price}</p>
+                            </div>
                         </div>
+                        </>
                     )
                 })
             }
