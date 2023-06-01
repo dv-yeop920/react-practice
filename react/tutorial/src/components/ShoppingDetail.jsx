@@ -1,20 +1,17 @@
 import React from 'react';
-import { useState } from 'react';
 import {Outlet} from 'react-router-dom';
-import shoesData from './data.js';
 
-const ShoppingDetail = () => {
-    const [shoes] = useState(shoesData);
+const ShoppingDetail = (props) => {
     return (
         <>
         {
-            shoes.map((item , i) => {
+            props.shoes.map((item , i) => {
                 return(
                     <div class="col">
                         <div>
-                        <img src={shoes[i].image} alt=''/>
-                        <h4>{shoes[i].title}</h4>
-                        <p>{shoes[i].price}</p>
+                        <img src={props.shoes[i].image} alt=''/>
+                        <h4>{props.shoes[i].title}</h4>
+                        <p>{props.shoes[i].price}</p>
                         </div>
                     </div>
                 )

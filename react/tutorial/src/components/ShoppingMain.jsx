@@ -1,10 +1,8 @@
 import React from 'react';
-import { useState } from 'react';
-import shoesData from './data.js';
 
 
-const Shopping = () => {
-    const [shoes] = useState(shoesData);
+
+const ShoppingMain = (props) => {
     return (
         <>
         <div className='main-bg'>
@@ -12,14 +10,14 @@ const Shopping = () => {
         <div class="container">
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '10px',textAlign:'center' }}>
             {
-                shoes.map((item , i) => {
+                props.shoes.map((item , i) => {
                     return(
                         <>
                         <div class="col">
                             <div>
-                            <img src={shoes[i].image} alt=''/>
-                            <h4>{shoes[i].title}</h4>
-                            <p>{shoes[i].price}</p>
+                            <img src={props.shoes[i].image} alt=''/>
+                            <h4>{props.shoes[i].title}</h4>
+                            <p>{props.shoes[i].price}</p>
                             </div>
                         </div>
                         </>
@@ -32,4 +30,4 @@ const Shopping = () => {
     );
 };
 
-export default Shopping;
+export default ShoppingMain;
