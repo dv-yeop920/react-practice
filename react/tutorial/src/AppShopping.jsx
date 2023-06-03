@@ -8,6 +8,7 @@ import ShoppingMain from './components/ShoppingMain';
 import shoesData from './components/data.js';
 import { useState } from 'react';
 import { Route, Routes, useNavigate } from 'react-router-dom';
+import BuyModal from './components/BuyModal';
 
 
 const AppShopping = () => {
@@ -29,8 +30,7 @@ const AppShopping = () => {
     <Routes>
         <Route path='/' element = {<ShoppingMain shoes = {shoes}/>}/>
         <Route path='/detail' element = {<ShoppingDetail shoes = {shoes}/>}>
-            <Route path='own' element = {<div>이거슨</div>}/>
-            <Route path='two' element = {<div>매직</div>}/>
+            <Route path='own' element = {<BuyModal/>}/>
         </Route>
         <Route path='/info' element = {<ShoppingInfo/>}/>
         <Route path='*' element = {<div>404</div>}/>

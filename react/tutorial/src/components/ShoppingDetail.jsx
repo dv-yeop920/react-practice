@@ -1,25 +1,25 @@
 import React from 'react';
-import {Outlet} from 'react-router-dom';
+import {useNavigate, Outlet} from 'react-router-dom';
 
 const ShoppingDetail = (props) => {
+    const navigate = useNavigate();
     return (
         <>
-        {
-            props.shoes.map((item , i) => {
-                return(
                     <div class="col">
                         <div>
-                        <img src={props.shoes[i].image} alt=''/>
-                        <h4>{props.shoes[i].title}</h4>
-                        <p>{props.shoes[i].price}</p>
+                        <img src={props.shoes[0].image} alt=''/>
+                        <h4>{props.shoes[0].title}</h4>
+                        <p>{props.shoes[0].price}</p>
+                        <button 
+                        onClick={() =>{navigate('own')}}
+                        type="button"
+                        class="btn btn-secondary">구매 하기</button>
                         </div>
                     </div>
-                )
-            })
-        }
+
             <Outlet></Outlet>
         </>
-    );
+    )
 };
 
 export default ShoppingDetail;

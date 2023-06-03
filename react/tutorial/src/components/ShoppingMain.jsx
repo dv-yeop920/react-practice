@@ -8,7 +8,9 @@ const ShoppingMain = (props) => {
         <div className='main-bg'>
         </div>
         <div class="container">
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '10px',textAlign:'center' }}>
+        <div style={{ display: 'grid',
+                    gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', 
+                    gap: '10px',textAlign:'center' }}>
             {
                 props.shoes.map((item , i) => {
                     return(
