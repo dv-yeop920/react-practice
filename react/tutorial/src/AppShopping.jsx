@@ -12,7 +12,7 @@ import { Route, Routes, useNavigate } from 'react-router-dom';
 
 
 const AppShopping = () => {
-    const [shoes] = useState(shoesData);
+    const [shoes , setShoes] = useState(shoesData);
     const navigate = useNavigate();
     return (
         <>

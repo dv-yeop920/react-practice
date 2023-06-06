@@ -8,15 +8,18 @@ const ShoppingMain = (props) => {
     const navigate = useNavigate();
     const selectList = ['선택', '낮은 가격순', '높은 가격순', '알파벳순'];
     const [selected, setSelected] = useState('');
-
-    const handleSelect = (e) => {
-        setSelected(e.target.value);
-    };
+    
     const viewByPrice = () => {
+        const sortedShoes = [...props.shoes];
         props.shoes.sort((a,b) => {
             return a.price - b.price;
-        })
+        });
+        props.setShoes(sortedShoes);
     }
+    const handleSelect = (e) => {
+        setSelected(e.target.value);
+        e.target.value === '낮은 가격순' && viewByPrice();
+    };
     return (
         <>
         <div className='main-bg'>
@@ -26,7 +29,7 @@ const ShoppingMain = (props) => {
             <div className='select'>
                 <select onChange={handleSelect} value={selected}>
                 {selectList.map((item) => (
-                    <option 
+                    <option
                     value={item} 
                     key={item}>
                     {item}
