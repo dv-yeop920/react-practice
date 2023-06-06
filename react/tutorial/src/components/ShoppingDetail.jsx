@@ -1,15 +1,16 @@
 import React from 'react';
-import {useNavigate, Outlet} from 'react-router-dom';
+import {useNavigate, Outlet, useParams} from 'react-router-dom';
 
 const ShoppingDetail = (props) => {
     const navigate = useNavigate();
+    const {id} = useParams();
     return (
         <>
                     <div class="col">
                         <div>
-                        <img src={props.shoes[0].image} alt=''/>
-                        <h4>{props.shoes[0].title}</h4>
-                        <p>{props.shoes[0].price}</p>
+                        <img src={props.shoes[id].image} alt=''/>
+                        <h4>{props.shoes[id].title}</h4>
+                        <p>{props.shoes[id].price}</p>
                         <button 
                         onClick={() =>{navigate('buy')}}
                         type="button"

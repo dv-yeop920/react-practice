@@ -1,8 +1,10 @@
 import React from 'react';
+import {useNavigate} from 'react-router-dom';
 
 
 
 const ShoppingMain = (props) => {
+    const navigate = useNavigate();
     return (
         <>
         <div className='main-bg'>
@@ -17,7 +19,10 @@ const ShoppingMain = (props) => {
                         <>
                         <div class="col">
                             <div>
-                            <img src={props.shoes[i].image} alt=''/>
+                            <img 
+                            src={props.shoes[i].image}
+                            alt=''
+                            onClick={() => {navigate(`/detail/${i}`)}}/>
                             <h4>{props.shoes[i].title}</h4>
                             <p>{props.shoes[i].price}</p>
                             </div>
