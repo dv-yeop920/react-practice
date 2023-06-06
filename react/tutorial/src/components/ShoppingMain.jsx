@@ -9,17 +9,31 @@ const ShoppingMain = (props) => {
     const selectList = ['선택', '낮은 가격순', '높은 가격순', '알파벳순'];
     const [selected, setSelected] = useState('');
     
-    const viewByPrice = () => {
+    const viewByFilter = (e) => {
         const sortedShoes = [...props.shoes];
-        props.shoes.sort((a,b) => {
-            return a.price - b.price;
-        });
+        if(e === '낮은 가격순') {
+            props.shoes.sort((a,b) => {
+                return a.price - b.price;
+            });
+        }
+        if(e === '높은 가격순') {
+            props.shoes.sort((a,b) => {
+                return b.price - a.price;
+            });
+        }
+        if(e === '알파벳순') {
+            props.shoes.sort((a,b) => {
+                return a.title.localeCompare(b.title);
+            });
+        }
         props.setShoes(sortedShoes);
     }
+
     const handleSelect = (e) => {
         setSelected(e.target.value);
-        e.target.value === '낮은 가격순' && viewByPrice();
+        viewByFilter(e.target.value);
     };
+    
     return (
         <>
         <div className='main-bg'>
