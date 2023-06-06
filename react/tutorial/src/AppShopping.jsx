@@ -30,7 +30,7 @@ const AppShopping = () => {
     <Routes>
         <Route path='/' element = {<ShoppingMain shoes = {shoes}/>}/>
         <Route path='/detail' element = {<ShoppingDetail shoes = {shoes}/>}>
-            <Route path='own' element = {<BuyModal/>}/>
+            <Route path='buy' element = {<BuyModal/>}/>
         </Route>
         <Route path='/info' element = {<ShoppingInfo/>}/>
         <Route path='*' element = {<div>404</div>}/>

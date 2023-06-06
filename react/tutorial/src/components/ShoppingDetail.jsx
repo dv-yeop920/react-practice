@@ -11,7 +11,7 @@ const ShoppingDetail = (props) => {
                         <h4>{props.shoes[0].title}</h4>
                         <p>{props.shoes[0].price}</p>
                         <button 
-                        onClick={() =>{navigate('own')}}
+                        onClick={() =>{navigate('buy')}}
                         type="button"
                         class="btn btn-secondary">구매 하기</button>
                         </div>
