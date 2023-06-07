@@ -61,6 +61,38 @@ let data = [
         image:'https://image.hmall.com/static/0/5/37/27/2127375055_0.jpg?RS=600x600&AR=0',
         content : "Born in the States",
         price : 129000
+    },
+
+    {
+        id : 8,
+        title : "Cortez",
+        image:'https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/88c9e86c-58d5-4cfc-b1ee-e18213a5ef2e/%EC%BD%94%EB%A5%B4%ED%85%8C%EC%A6%88-%EC%97%AC%EC%84%B1-%EC%8B%A0%EB%B0%9C-wzcbXaKP.png',
+        content : "Born in the States",
+        price : 139000
+    },
+
+    {
+        id : 9,
+        title : "Dunk row",
+        image:'https://image-cdn.hypb.st/https%3A%2F%2Fkr.hypebeast.com%2Ffiles%2F2023%2F04%2Fnike-dunk-low-twist-jade-ice-dz2794-101-release-info1.jpg?q=75&w=800&cbr=1&fit=max',
+        content : "Born in the States",
+        price : 199000
+    },
+
+    {
+        id : 10,
+        title : "SkyBlue Shoes",
+        image:'https://gcsevmfhfcsn4841109.gcdn.ntruss.com/data/jdsports_data/images/product/00/00/23/13/89/b_0000231389.gif',
+        content : "Born in the States",
+        price : 159000
+    },
+
+    {
+        id : 11,
+        title : "Scott Olive",
+        image:'https://static.luck-d.com/product/2482/main_carousel/TRAVIS_SCOTT_X_AIR_JORDAN_1_LOW_OG_OLIVE_WMNS_DZ4137106_57193.webp',
+        content : "Born in the States",
+        price : 529000
     }
 ]
 
