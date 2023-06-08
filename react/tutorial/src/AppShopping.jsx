@@ -9,6 +9,7 @@ import shoesData from './components/data.js';
 import BuyModal from './components/BuyModal';
 import { useState } from 'react';
 import { Route, Routes, useNavigate } from 'react-router-dom';
+import ShoppingInput from './components/ShoppingInput';
 
 
 const AppShopping = () => {
@@ -21,7 +22,7 @@ const AppShopping = () => {
                 <Navbar.Brand onClick = {() => {navigate('/')}}>Shop</Navbar.Brand>
                 <Nav className="me-auto">
                 <Nav.Link onClick={() => {navigate('/')}}>Home</Nav.Link>
-                <Nav.Link onClick={() => {navigate('/detail')}}>Menu</Nav.Link>
+                <Nav.Link onClick={() => {navigate('/detail')}}>Input</Nav.Link>
                 <Nav.Link onClick={() => {navigate('/info')}}>Info</Nav.Link>
             </Nav>
             </Container>
@@ -29,6 +30,7 @@ const AppShopping = () => {
 
     <Routes>
         <Route path='/' element = {<ShoppingMain shoes = {shoes}/>} />
+        <Route path='/detail' element={<ShoppingInput/>} />
         <Route path='/detail/:id' element = {<ShoppingDetail shoes = {shoes} />}>
             <Route path='buy' element = {<BuyModal/>}/>
         </Route>

@@ -61,7 +61,8 @@ const ShoppingMain = (props) => {
                 >
                     {count}초 뒤 사라집니다
                 </div>
-        )}
+        )
+        }
 
         <div className='main-bg'>
         </div>
