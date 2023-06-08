@@ -1,43 +1,49 @@
 import React from 'react';
 import './App.css';
-import {Navbar , Container , Nav} from 'react-bootstrap';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import ShoppingDetail from './components/ShoppingDetail';
-import ShoppingInfo from './components/ShoppingInfo';
-import ShoppingMain from './components/ShoppingMain';
 import shoesData from './components/data.js';
-import BuyModal from './components/BuyModal';
-import { useState } from 'react';
-import { Route, Routes, useNavigate } from 'react-router-dom';
+import Header from './components/Header';
+import ShoppingMain from './components/ShoppingMain';
+import MoreButton from './components/MoreButton';
+import ShoppingDetail from './components/ShoppingDetail';
 import ShoppingInput from './components/ShoppingInput';
+import ShoppingInfo from './components/ShoppingInfo';
+import BuyModal from './components/BuyModal';
+import axios from 'axios';
+import { Route, Routes } from 'react-router-dom';
+import { useState } from 'react';
+
 
 
 
 const AppShopping = () => {
     const [shoes , setShoes] = useState(shoesData);
-    const navigate = useNavigate();
+    const moreShoes =  () => {
+        axios.get('https://codingapple1.github.io/shop/data2.json')
+        .then((result) => {
+            const newShoes = [...shoes,...result.data];
+            console.log(newShoes)
+            setShoes(newShoes);
+        })
+        .catch(() => {console.log('요청 실패')});
+    }
+    
     return (
         <>
-        <Navbar bg='light' variant='light'>
-            <Container>
-                <Navbar.Brand onClick = {() => {navigate('/')}}>Shop</Navbar.Brand>
-                <Nav className='me-auto'>
-                <Nav.Link onClick={() => {navigate('/')}}>Home</Nav.Link>
-                <Nav.Link onClick={() => {navigate('/detail')}}>Input</Nav.Link>
-                <Nav.Link onClick={() => {navigate('/info')}}>Info</Nav.Link>
-            </Nav>
-            </Container>
-        </Navbar>
-
-    <Routes>
-        <Route path='/' element = {<ShoppingMain shoes = {shoes}/>} />
-        <Route path='/detail' element={<ShoppingInput/>} />
-        <Route path='/detail/:id' element = {<ShoppingDetail shoes = {shoes} />}>
-            <Route path='buy' element = {<BuyModal/>}/>
-        </Route>
-        <Route path='/info' element = {<ShoppingInfo/>}/>
-        <Route path='*' element = {<div>404</div>}/>
-    </Routes>
+        <Header/>
+        <Routes>
+            <Route 
+            path='/' 
+            element = {[
+            <ShoppingMain shoes = {shoes}/>,
+            <MoreButton more = {moreShoes}/>
+            ]}/>
+            <Route path='/detail/:id' element = {<ShoppingDetail shoes = {shoes}/>}>
+                <Route path='buy' element = {<BuyModal/>}/>
+            </Route>
+            <Route path='/detail' element={<ShoppingInput/>} />
+            <Route path='/info' element = {<ShoppingInfo/>} />
+            <Route path='*' element = {<div>404</div>}/>
+        </Routes>
         </>
     );
 };
