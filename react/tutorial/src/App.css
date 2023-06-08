@@ -139,3 +139,16 @@ img {
   width: 150px;
   background-color: aliceblue;
 }
+.btn-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.button {
+  padding: 10px;
+  width: 100px;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  background-color: rgb(82, 82, 250);
+}

@@ -1,6 +1,7 @@
 import React from 'react';
 import { useEffect , useState } from 'react';
 import {useNavigate} from 'react-router-dom';
+import axios from 'axios';
 
 
 
@@ -13,7 +14,6 @@ const ShoppingMain = (props) => {
     const [selected, setSelected] = useState('');
     
     const viewByFilter = (e) => {
-        const sortedShoes = [...props.shoes];
         if(e === '낮은 가격순') {
             props.shoes.sort((a,b) => {
                 return a.price - b.price;
@@ -29,7 +29,6 @@ const ShoppingMain = (props) => {
                 return a.title.localeCompare(b.title);
             });
         }
-        props.setShoes(sortedShoes);
     }
 
     const handleSelect = (e) => {
@@ -49,8 +48,16 @@ const ShoppingMain = (props) => {
         // 컴포넌트가 언마운트될 때 interval을 정리.
         return () => clearInterval(interval);
         },[count]);
-        //React Hook useEffect에는 'setCounter'에 대한 호출이 포함되어 있습니다. 종속성 목록이 없으면 무한 업데이트 체인으로 이어질 수 있습니다. 이 문제를 해결하려면 [count]를 useEffect Hook의 두 번째 인수로 전달합니다.
-
+    //React Hook useEffect에는 'setCounter'에 대한 호출이 포함되어 있습니다. 종속성 목록이 없으면 무한 업데이트 체인으로 이어질 수 있습니다. 이 문제를 해결하려면 [count]를 useEffect Hook의 두 번째 인수로 전달합니다.
+    const getShoes =  () => {
+                axios.get('https://codingapple1.github.io/shop/data2.json')
+                .then((result) => {
+                    const newShoes = [...props.shoes,...result.data];
+                    console.log(newShoes)
+                    props.setShoes(newShoes);
+                })
+                .catch(() => {console.log('요청 실패')});
+    }
     return (
         <>
         {
@@ -61,7 +68,7 @@ const ShoppingMain = (props) => {
                 >
                     {count}초 뒤 사라집니다
                 </div>
-        )
+            )
         }
 
         <div className='main-bg'>
@@ -80,16 +87,19 @@ const ShoppingMain = (props) => {
                 </select>
             </div>
 
-        <div style={{ display: 'grid',
-                    gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', 
-                    gap: '10px',textAlign:'center' }}>
+        <div 
+        className='shoes-list-container'
+        style={{display: 'grid',
+                gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', 
+                gap: '10px',textAlign:'center' 
+        }}>
 
             {
                 props.shoes.map((item , i) => {
                     return(
                         <>
-                        <div class="col">
-                            <div>
+                        <div className='col'>
+                            <div key={i} i = {i}>
                             <img
                             onClick={() => {navigate(`/detail/${i}`)}}
                             className='product'
@@ -104,8 +114,15 @@ const ShoppingMain = (props) => {
                 })
             }
         </div>
+        <div className='btn-box'>
+            <button 
+            className='button'
+            onClick={() => {getShoes()}}>
+            더 보기
+            </button>
         </div>
-        </>
+        </div>
+    </>
     );
 };
 

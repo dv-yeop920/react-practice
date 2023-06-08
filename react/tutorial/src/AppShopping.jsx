@@ -12,15 +12,16 @@ import { Route, Routes, useNavigate } from 'react-router-dom';
 import ShoppingInput from './components/ShoppingInput';
 
 
+
 const AppShopping = () => {
     const [shoes , setShoes] = useState(shoesData);
     const navigate = useNavigate();
     return (
         <>
-        <Navbar bg="light" variant="light">
+        <Navbar bg='light' variant='light'>
             <Container>
                 <Navbar.Brand onClick = {() => {navigate('/')}}>Shop</Navbar.Brand>
-                <Nav className="me-auto">
+                <Nav className='me-auto'>
                 <Nav.Link onClick={() => {navigate('/')}}>Home</Nav.Link>
                 <Nav.Link onClick={() => {navigate('/detail')}}>Input</Nav.Link>
                 <Nav.Link onClick={() => {navigate('/info')}}>Info</Nav.Link>

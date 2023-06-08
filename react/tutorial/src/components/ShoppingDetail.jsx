@@ -15,7 +15,7 @@ const ShoppingDetail = (props) => {
                 <button 
                 onClick={() =>{navigate('buy')}}
                 type="button"
-                class="btn btn-secondary">구매 하기
+                className="btn btn-secondary">구매 하기
                 </button>
             </div>
         </div>
