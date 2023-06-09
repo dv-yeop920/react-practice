@@ -16,8 +16,9 @@ import { useState } from 'react';
 
 const AppShopping = () => {
     const [shoes , setShoes] = useState(shoesData);
+    const [moreCount , setMoreCount] = useState(2);
     const moreShoes =  () => {
-        axios.get('https://codingapple1.github.io/shop/data2.json')
+        axios.get(`https://codingapple1.github.io/shop/data${moreCount}.json`)
         .then((result) => {
             const newShoes = [...shoes,...result.data];
             console.log(newShoes);
@@ -34,7 +35,7 @@ const AppShopping = () => {
             path='/' 
             element = {[
             <ShoppingMain shoes = {shoes}/>,
-            <MoreButton more = {moreShoes}/>
+            <MoreButton more = {moreShoes} setMoreCount = {setMoreCount}/>
             ]}/>
             <Route path='/detail/:id' element = {<ShoppingDetail shoes = {shoes}/>}>
                 <Route path='buy' element = {<BuyModal/>}/>
