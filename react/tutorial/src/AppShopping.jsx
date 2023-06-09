@@ -11,6 +11,7 @@ import BuyModal from './components/BuyModal';
 import axios from 'axios';
 import { Route, Routes } from 'react-router-dom';
 import { useState } from 'react';
+import ShoppingCart from './components/ShoppingCart';
 
 
 
@@ -42,6 +43,7 @@ const AppShopping = () => {
             </Route>
             <Route path='/detail' element={<ShoppingInput/>} />
             <Route path='/info' element = {<ShoppingInfo/>} />
+            <Route path='/cart' element={<ShoppingCart/>} />
             <Route path='*' element = {<div>404</div>}/>
         </Routes>
         </>
