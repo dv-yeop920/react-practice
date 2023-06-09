@@ -7,22 +7,22 @@ import Counter from './Counter';
 
 
 
-const ShoppingMain = (props) => {
+const ShoppingMain = ({shoes}) => {
     const selectList = ['선택', '낮은 가격순', '높은 가격순', '알파벳순'];
     const [selected, setSelected] = useState('');
     const viewByFilter = (e) => {
         if(e === '낮은 가격순') {
-            props.shoes.sort((a,b) => {
+            shoes.sort((a,b) => {
                 return a.price - b.price;
             });
         }
         if(e === '높은 가격순') {
-            props.shoes.sort((a,b) => {
+            shoes.sort((a,b) => {
                 return b.price - a.price;
             });
         }
         if(e === '알파벳순') {
-            props.shoes.sort((a,b) => {
+            shoes.sort((a,b) => {
                 return a.title.localeCompare(b.title);
             });
         }
@@ -59,7 +59,7 @@ const ShoppingMain = (props) => {
             }}>
 
                 {
-                    props.shoes.map((item , i) => {
+                    shoes.map((item , i) => {
                         return(
                             <>
                             <div className='col'>
@@ -67,10 +67,10 @@ const ShoppingMain = (props) => {
                                     <img
                                     onClick={() => {navigate(`/detail/${i}`)}}
                                     className='product'
-                                    src={props.shoes[i].image}
+                                    src={shoes[i].image}
                                     alt=''/>
-                                    <h4>{props.shoes[i].title}</h4>
-                                    <p>{props.shoes[i].price}</p>
+                                    <h4>{shoes[i].title}</h4>
+                                    <p>{shoes[i].price}</p>
                                 </div>
                             </div>
                             </>
