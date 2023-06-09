@@ -14,14 +14,13 @@ import { useState } from 'react';
 
 
 
-
 const AppShopping = () => {
     const [shoes , setShoes] = useState(shoesData);
     const moreShoes =  () => {
         axios.get('https://codingapple1.github.io/shop/data2.json')
         .then((result) => {
             const newShoes = [...shoes,...result.data];
-            console.log(newShoes)
+            console.log(newShoes);
             setShoes(newShoes);
         })
         .catch(() => {console.log('요청 실패')});
