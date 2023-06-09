@@ -1,5 +1,6 @@
 import React from 'react';
 import {useNavigate, Outlet, useParams} from 'react-router-dom';
+import ShoppingTab from './ShoppingTab';
 
 const ShoppingDetail = (props) => {
     const navigate = useNavigate();
@@ -19,6 +20,7 @@ const ShoppingDetail = (props) => {
                 </button>
             </div>
         </div>
+        <ShoppingTab/>
         </>
     )
 };
