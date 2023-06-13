@@ -1,8 +1,10 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {Table} from 'react-bootstrap';
+import {useSelector} from 'react-redux';
 
 const ShoppingCart = () => {
+    const user = useSelector((state) => {return state.user});
     return (
         <>
         <Table>
@@ -15,12 +17,18 @@ const ShoppingCart = () => {
             </tr>
             </thead>
             <tbody>
-            <tr>
-                <td>1</td>
-                <td>안녕</td>
-                <td>안녕</td>
-                <td>안녕</td>
-            </tr>
+                {
+                    user.map((user , i) => {
+                        return(
+                            <tr>
+                            <td>{user.id}</td>
+                            <td>{user.name}</td>
+                            <td>{user.count}</td>
+                            <td>안녕</td>
+                            </tr>
+                        )
+                    })
+                }
             </tbody>
         </Table> 
         </>
