@@ -13,10 +13,13 @@ const user = createSlice({
     reducers: {
         changeCount(state , action){
             state[action.payload].count += 1;
+        },
+        addUserList(state , action) {
+            state.push(action.payload);
         }
     }
 });
 
-export const { changeCount } = user.actions;
+export const { addUserList,changeCount } = user.actions;
 
 export default user
