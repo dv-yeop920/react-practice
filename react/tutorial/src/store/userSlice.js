@@ -12,7 +12,10 @@ const user = createSlice({
     ],
     reducers: {
         changeCount(state , action){
-            state[action.payload].count += 1;
+            const selectId = state.find(item => {
+                return action.payload === item.id
+            })
+            selectId.count += 1;
         },
         addUserList(state , action) {
             state.push(action.payload);
