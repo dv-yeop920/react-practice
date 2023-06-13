@@ -2,7 +2,7 @@ import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {Table} from 'react-bootstrap';
 import {useDispatch, useSelector} from 'react-redux';
-import {changeCount} from '../store/userSlice.js';
+import {addCount , subtractCount} from '../store/userSlice.js';
 
 const ShoppingCart = () => {
     const user = useSelector((state) => {return state.user});
@@ -20,7 +20,7 @@ const ShoppingCart = () => {
             </thead>
             <tbody>
                 {
-                    user.map((user , i) => {
+                    user.map((user) => {
                         return(
                             <tr>
                             <td>{user.id}</td>
@@ -29,9 +29,15 @@ const ShoppingCart = () => {
                             <td>
                                 <button
                                 onClick={() => {
-                                    dispatch(changeCount(user.id));
+                                    dispatch(addCount(user.id));
                                 }}>
                                     +
+                                </button>
+                                <button
+                                onClick={() => {
+                                    dispatch(subtractCount(user.id));
+                                }}>
+                                    -
                                 </button>
                             </td>
                             </tr>
