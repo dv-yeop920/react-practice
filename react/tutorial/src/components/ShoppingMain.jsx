@@ -62,15 +62,15 @@ const ShoppingMain = ({shoes}) => {
                     shoes.map((item , i) => {
                         return(
                             <>
-                            <div className='col'>
-                                <div key={i} i = {i}>
+                            <div className='col' key={i}>
+                                <div>
                                     <img
-                                    onClick={() => {navigate(`/detail/${i}`)}}
                                     className='product'
-                                    src={shoes[i].image}
+                                    onClick={() => {navigate(`/detail/${item.id}`)}}
+                                    src={item.image}
                                     alt=''/>
-                                    <h4>{shoes[i].title}</h4>
-                                    <p>{shoes[i].price}</p>
+                                    <h4>{item.title}</h4>
+                                    <p>{item.price}</p>
                                 </div>
                             </div>
                             </>

@@ -8,18 +8,26 @@ const ShoppingDetail = ({shoes}) => {
     const navigate = useNavigate();
     const dispatch = useDispatch();
     const {id} = useParams();
+    const selectedShoes = shoes.find((item) => item.id === parseInt(id));
     return (
         <>
-        <Outlet shoes = {shoes}></Outlet>
+        <Outlet></Outlet>
         <div class="col">
             <div>
-                <img src={shoes[id].image} alt=''/>
-                <h4>{shoes[id].title}</h4>
-                <p>{shoes[id].price}</p>
+                <img src={selectedShoes.image} alt=''/>
+                <h4>{selectedShoes.title}</h4>
+                <p>{selectedShoes.price}</p>
                 <button 
                 onClick={() =>{
                     navigate('/cart');
-                    dispatch(addUserList({id : shoes[id].id, name : shoes[id].title, count : 1}))
+                    dispatch(
+                        addUserList(
+                            {
+                                id : selectedShoes.id,
+                                name : selectedShoes.title,
+                                count : 1
+                            })
+                        )
                 }}
                 type="button"
                 className="btn btn-secondary">구매 하기
