@@ -17,4 +17,6 @@ const user = createSlice({
     }
 });
 
+export const { changeCount } = user.actions;
+
 export default user

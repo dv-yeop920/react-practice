@@ -1,8 +1,7 @@
-import { configureStore, createSlice } from '@reduxjs/toolkit'
+import { configureStore } from '@reduxjs/toolkit'
 import user from './store/userSlice.js';
 
 
-export const { changeCount } = user.actions;
 
 export default configureStore({
     reducer: { 

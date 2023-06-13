@@ -2,7 +2,7 @@ import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {Table} from 'react-bootstrap';
 import {useDispatch, useSelector} from 'react-redux';
-import {changeCount} from '../store.js';
+import {changeCount} from '../store/userSlice.js';
 
 const ShoppingCart = () => {
     const user = useSelector((state) => {return state.user});
