@@ -29,7 +29,7 @@ const ShoppingCart = () => {
                             <td>
                                 <button
                                 onClick={() => {
-                                    dispatch(changeCount(i));
+                                    dispatch(changeCount(user.id));
                                 }}>
                                     +
                                 </button>
