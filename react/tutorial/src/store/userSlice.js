@@ -18,14 +18,20 @@ const user = createSlice({
                 return action.payload === item.id
             })
             selectId.count--;
-            selectId.count < 0 && selectId.count++;
+            selectId.count < 1 && selectId.count++;
         },
         addUserList(state , action) {
             state.push(action.payload);
+        },
+        removeUserList(state , action) {
+            const selectId = state.findIndex(item => {
+                return action.payload === item.id
+            })
+            state.splice(selectId , 1);
         }
     }
 });
 
-export const { addUserList, addCount , subtractCount} = user.actions;
+export const { removeUserList , addUserList, addCount , subtractCount} = user.actions;
 
 export default user
