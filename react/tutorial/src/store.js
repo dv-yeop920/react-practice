@@ -9,8 +9,17 @@ const user = createSlice({
         {id : 1, name : 'Grey Yordan', count : 1},
         {id : 2, name : 'hey', count : 5},
         {id : 3, name : 'hello world', count : 3}
-    ] 
+    ],
+    reducers: {
+        changeCount(state , action){
+            state[action.payload].count += 1;
+        }
+    }
 });
+
+
+export const { changeCount } = user.actions;
+
 export default configureStore({
     reducer: { 
         user : user.reducer
