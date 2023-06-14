@@ -1,5 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+
 const local = createSlice({
     name:'local',
     initialState:[],
@@ -16,13 +17,10 @@ const local = createSlice({
         },
         setLocalStorage(state) {
             localStorage.setItem('watchedMenu' ,JSON.stringify(state));
-        },
-        getLocalStorage(state , action) {
-
         }
     }
 })
 
-export const { addWachList , setLocalStorage , getLocalStorage } = local.actions;
+export const { addWachList , setLocalStorage } = local.actions;
 
 export default local;

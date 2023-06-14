@@ -41,7 +41,7 @@ const ShoppingMain = ({shoes}) => {
         <>
         <Counter/>
         <div className='main-bg'></div>
-        <div class="container">
+        <div className="container">
             <div className='select'>
                     <select onChange={handleSelect} value={selected}>
                     {selectList.map((item) => (
@@ -62,6 +62,14 @@ const ShoppingMain = ({shoes}) => {
 
                 {
                     shoes.map((item , i) => {
+                        const shoesInfo = 
+                        {
+                            id : item.id,
+                            image : item.image,
+                            title : item.title,
+                            price : item.price,
+                            count : item.count
+                        }
                         return(
                             <>
                             <div className='col' key={i}>
@@ -70,15 +78,7 @@ const ShoppingMain = ({shoes}) => {
                                     className='product'
                                     onClick={() => {
                                         navigate(`/detail/${item.id}`);
-                                        dispatch(addWachList(
-                                            {
-                                                id : item.id,
-                                                image : item.image,
-                                                name : item.title,
-                                                price : item.price,
-                                                count : item.count
-                                            }
-                                        ));
+                                        dispatch(addWachList(shoesInfo));
                                         dispatch(setLocalStorage());
                                     }}
                                     src={item.image}
