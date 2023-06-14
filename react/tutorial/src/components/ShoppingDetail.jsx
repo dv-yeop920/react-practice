@@ -12,7 +12,7 @@ const ShoppingDetail = ({shoes}) => {
     return (
         <>
         <Outlet></Outlet>
-        <div class="col">
+        <div className="col">
             <div>
                 <img src={selectedShoes.image} alt=''/>
                 <h4>{selectedShoes.title}</h4>
