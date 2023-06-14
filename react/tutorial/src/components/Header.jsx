@@ -16,6 +16,7 @@ const Header = () => {
                         <Nav.Link onClick={() => {navigate('/detail')}}>Input</Nav.Link>
                         <Nav.Link onClick={() => {navigate('/info')}}>Info</Nav.Link>
                         <Nav.Link onClick={() => {navigate('/cart')}}>cart</Nav.Link>
+                        <Nav.Link onClick={() => {navigate('/watch')}}>최근 본 상품</Nav.Link>
                     </Nav>
             </Container>
         </Navbar>

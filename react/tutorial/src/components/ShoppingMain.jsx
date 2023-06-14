@@ -1,6 +1,8 @@
 import React from 'react';
 import { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import {useNavigate} from 'react-router-dom';
+import { addWachList, setLocalStorage } from '../store/local';
 import Counter from './Counter';
 
 
@@ -34,7 +36,7 @@ const ShoppingMain = ({shoes}) => {
     };
 
     const navigate = useNavigate();
-
+    const dispatch = useDispatch();
     return (
         <>
         <Counter/>
@@ -66,7 +68,19 @@ const ShoppingMain = ({shoes}) => {
                                 <div>
                                     <img
                                     className='product'
-                                    onClick={() => {navigate(`/detail/${item.id}`)}}
+                                    onClick={() => {
+                                        navigate(`/detail/${item.id}`);
+                                        dispatch(addWachList(
+                                            {
+                                                id : item.id,
+                                                image : item.image,
+                                                name : item.title,
+                                                price : item.price,
+                                                count : item.count
+                                            }
+                                        ));
+                                        dispatch(setLocalStorage());
+                                    }}
                                     src={item.image}
                                     alt=''/>
                                     <h4>{item.title}</h4>

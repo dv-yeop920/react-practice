@@ -30,7 +30,8 @@ const ShoppingDetail = ({shoes}) => {
                         )
                 }}
                 type="button"
-                className="btn btn-secondary">구매 하기
+                className="btn btn-secondary">
+                    구매 하기
                 </button>
             </div>
         </div>
