@@ -14,7 +14,7 @@ const local = createSlice({
             }
             state.push(newList);
         },
-        setLocalStorage(state , action) {
+        setLocalStorage(state) {
             localStorage.setItem('watchedMenu' ,JSON.stringify(state));
         },
         getLocalStorage(state , action) {
