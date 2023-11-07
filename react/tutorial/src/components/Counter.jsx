@@ -16,7 +16,7 @@ const Counter = () => {
         // 컴포넌트가 언마운트될 때 interval을 정리.
         return () => clearInterval(interval);
         },[count]);
-    //React Hook useEffect에는 'setCounter'에 대한 호출이 포함되어 있습니다. 종속성 목록이 없으면 무한 업데이트 체인으로 이어질 수 있습니다. 이 문제를 해결하려면 [count]를 useEffect Hook의 두 번째 인수로 전달합니다.
+    //React Hook useEffect에는 'setCounter'에 대한 호출이 포함되어 있습니다. 종속성 목록이 없으면 무한 업데이트 체인으로 이어질 수 있다. 이 문제를 해결하려면 [count]를 useEffect Hook의 두 번째 인수로 전달 한다.
     return (
         <>
         {

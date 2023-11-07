@@ -15,8 +15,6 @@ import { Route, Routes } from 'react-router-dom';
 import { useState } from 'react';
 
 
-
-
 const AppShopping = () => {
     const [shoes , setShoes] = useState(shoesData);
     const [moreCount , setMoreCount] = useState(2);
